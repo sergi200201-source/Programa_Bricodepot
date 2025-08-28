@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Programa Brico Depôt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Ingreso al Programa Brico Depôt</h1>
+        <form action="/login" method="post">
+            <label for="nombre">Por favor, introduce tu nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

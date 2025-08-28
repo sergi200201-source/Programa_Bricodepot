@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Denegado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Acceso Denegado</h1>
+        <p>Lo siento, no estás autorizado para acceder a este programa.</p>
+        <a href="{{ url_for('login') }}">Volver a intentar</a>
+    </div>
+</body>
+</html>

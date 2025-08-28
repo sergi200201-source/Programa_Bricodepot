@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Programa Brico Depôt</title>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Bienvenido al PROGRAMA DE BRICO DEPÔT, {{ nombre }}!</h1>
+        <button onclick="location.href='/nueva_entrada'">Nueva entrada</button>
+        <button onclick="location.href='/consultar'">Consultar</button>
+    </div>
+</body>
+</html>
