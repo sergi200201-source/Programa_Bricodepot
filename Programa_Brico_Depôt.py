@@ -9,6 +9,8 @@ st.subheader("Gestión eficiente de productos y presupuestos")
 #Sidebar 
 st.sidebar.image("logo.png", width=150)
 st.sidebar.header("Opciones")
+#Style 
+st.markdown("<style>...</style>", unsafe_allow_html=True)
 
 ARCHIVO = "datos.xlsx"
 COLUMNAS = ["Nombre Cliente", "Número SAP", "Estado Pedido", "DNI", "Teléfono"]
@@ -32,13 +34,6 @@ if not st.session_state["autenticado"]:
     autenticar()
     st.stop()
 
-# --- Encabezado con logo ---
-col1, col2 = st.columns([1, 6])
-with col1:
-    st.image("logo.png", width=80)  # Cambia el nombre si tu archivo es diferente
-with col2:
-    st.markdown("<h1 style='margin-bottom: 0;'>PROGRAMA DE BRICO DEPÔT</h1>", unsafe_allow_html=True)
-
 # --- Cargar datos de Excel o crear archivo si no existe ---
 if os.path.exists(ARCHIVO):
     df = pd.read_excel(ARCHIVO, dtype={"Teléfono": str})
@@ -51,16 +46,15 @@ if "vista" not in st.session_state:
     st.session_state["vista"] = None
 
 # --- Selección de modo con botones ---
-st.markdown("## Selecciona una opción:")
 col1, col2, col3 = st.columns(3)
 with col1:
-    if st.button("Editar pedidos"):
+    if st.sidebar.button("Editar pedidos"):
         st.session_state["vista"] = "editar"
 with col2:
-    if st.button("Consultar pedidos"):
+    if st.sidebar.button("Consultar pedidos"):
         st.session_state["vista"] = "consultar"
 with col3:
-    if st.button("Nueva entrada"):
+    if st.sidebar.button("Nueva entrada"):
         st.session_state["vista"] = "nueva"
 
 # --- Barra de búsqueda ---
