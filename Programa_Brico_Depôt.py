@@ -3,6 +3,13 @@ from st_aggrid import AgGrid, GridOptionsBuilder
 import pandas as pd
 import os
 
+#Titulo del programa 
+st.title("📦 Programa Bricodepot")
+st.subheader("Gestión eficiente de productos y presupuestos")
+#Sidebar 
+st.sidebar.image("logo.png", width=150)
+st.sidebar.header("Opciones")
+
 ARCHIVO = "datos.xlsx"
 COLUMNAS = ["Nombre Cliente", "Número SAP", "Estado Pedido", "DNI", "Teléfono"]
 
