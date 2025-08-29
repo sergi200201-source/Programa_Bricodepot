@@ -5,7 +5,7 @@ import os
 
 #Titulo del programa 
 st.title("📦 Programa Bricodepot")
-st.subheader("Gestión eficiente de productos y presupuestos")
+st.subheader("🛠️ Gestor Bricodepot")
 #Sidebar 
 st.sidebar.image("logo.png", width=150)
 st.sidebar.header("Opciones")
@@ -16,16 +16,17 @@ ARCHIVO = "datos.xlsx"
 COLUMNAS = ["Nombre Cliente", "Número SAP", "Estado Pedido", "DNI", "Teléfono"]
 
 # --- Autenticación simple ---
-def autenticar():
-    with st.form("login"):
-        usuario = st.text_input("Introduce tu nombre de usuario:")
-        enviar = st.form_submit_button("Entrar")
-        if enviar:
-            if usuario.strip().lower() == "sergi":
-                st.session_state["autenticado"] = True
-                st.success(f"¡Bienvenido al PROGRAMA DE BRICO DEPÔT, {usuario}!")
-            else:
-                st.error("No estás autorizado para acceder a este programa.")
+with st.spinner("Cargando datos..."):
+    def autenticar():
+        with st.form("login"):
+            usuario = st.text_input("Introduce tu nombre de usuario:")
+            enviar = st.form_submit_button("Entrar")
+            if enviar:
+                if usuario.strip().lower() == "parets1646":
+                    st.session_state["autenticado"] = True
+                    st.success(f"¡Bienvenido al PROGRAMA DE BRICO DEPÔT, {usuario}!")
+                else:
+                    st.error("No estás autorizado para acceder a este programa.")
 
 if "autenticado" not in st.session_state:
     st.session_state["autenticado"] = False
@@ -57,6 +58,7 @@ with col3:
     if st.sidebar.button("Nueva entrada"):
         st.session_state["vista"] = "nueva"
 
+
 # --- Barra de búsqueda ---
 def filtrar_dataframe(df):
     st.markdown("### Buscar pedido")
@@ -73,6 +75,7 @@ def filtrar_dataframe(df):
     return df
 
 # --- Mostrar solo el contenido seleccionado ---
+
 if st.session_state["vista"] == "editar":
     st.subheader("Tabla editable de pedidos")
     df_filtrado = filtrar_dataframe(df)
